@@ -5,29 +5,33 @@
  * 
  * ****** Function Declaration ******
  * Syntax: define using function keyword followed by function name, parameters in parentheses and the functionnbody in curly braces
- *  
- * function add(num1, num2){
- *      return num1 + num2;   
- * }
- *  console.log(add(10,12));
- * 
+ *  */
+function calculateTimberCost(pricePerUnit, quantity) {
+  return pricePerUnit * quantity;
+}
+
+console.log(calculateTimberCost(50000, 3)); // 150000
+ /*
  * Hoistion Behavior: Function declarations are hoisted to the top of their scope, meaning you can call them before they are defined.
  *                      _____________________________________________________
- *                      add() this works even before the function is defined
+ *                      calculateTimberCost() this works even before the function is defined
  *                      _____________________________________________________
  * Naming: always has a name 
  * can be used to define reusable functions globally locally
  * 
  * * ****** Function Expression******
  *                      __________________________________________________________________________
- *                      add() this will bring an error coz add is not a function rather a variable 
+ *                     calculateFurnitureCost() this will bring an error coz add is not a function rather a variable 
  *                      __________________________________________________________________________
- * const add = function(){
- *     return num1 + num2;   
- * }
- *  console.log(add(10,12));
- * 
- * Not hoisted (in a usable way): Only the variable (add) is hoisted, not the function definition. 
+ * */
+const calculateFurnitureCost = function(price, quantity) {
+  const tax = 0.1; // 10% furniture tax
+  return (price * quantity) + (price * quantity * tax);
+};
+
+console.log(calculateFurnitureCost(200000, 2)); // 440000
+/*
+ * Not hoisted (in a usable way): Only the variable (calculateFurnitureCost) is hoisted, not the function definition. 
  * So calling it before it's defined causes an error.
  * Can be anonymous or named.
  * Often used in callbacks, closures, or when assigning functions to variables.
